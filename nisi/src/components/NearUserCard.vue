@@ -1,20 +1,28 @@
 <template>
   <div class="near_user_card">
-      <div class="card full_shadow" style="border: none; border-radius: 20px;">
-        <div class="card_image">
-          <figure class="avatar avatar-xl">
-            <img :src="picture_path" alt="...">
-          </figure>
+    <div
+      class="card full_shadow"
+      style="border: none; border-radius: 20px;"
+    >
+      <div class="card_image">
+        <figure class="avatar avatar-xl">
+          <img
+            :src="picture_path"
+            alt="..."
+          >
+        </figure>
+      </div>
+      <div class="card_content">
+        <div class="user_info">
+          {{ username }}
         </div>
-        <div class="card_content">
-          <div class="user_info">
-            {{ username }}
-          </div>
-          <div class="follow">
-            <button class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">Follow</button>
-          </div>
+        <div class="follow">
+          <button class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">
+            Follow
+          </button>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -23,7 +31,7 @@
 
 export default {
   name: "NearUserCard",
-  props:['username','picture_path'],
+  props:['username','picturePath'],
   data(){
     return {
       followed: false,
@@ -71,8 +79,8 @@ export default {
   text-align: center;
 }
 .button_follow{
-  height: 6px;
-  padding-top: 0px;
+  height:30px;
+  padding-top: 5px;
   vertical-align: middle;
   text-align: center;
 }

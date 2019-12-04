@@ -1,22 +1,22 @@
-/* eslint-disable */
 <template>
   <div class="">
+    <Header>
+      Nisi
+    </Header>
     <Tabs>
-      <template v-slot:profile>
-        <Tab>
-          <Profile></Profile>
-        </Tab>
-      </template>
-      <template v-slot:home>
-        <Tab>
-          <Home></Home>
-        </Tab>
-      </template>
-      <template v-slot:near>
-        <Tab>
-          <Near></Near>
-        </Tab>
-      </template>
+      <Tab
+        name="Profile"
+        icon="../assets/icons/avatar.svg"
+        :selected="true"
+      >
+        <Profile />
+      </Tab>
+      <Tab name="Home" icon="../assets/icons/house.svg">
+        <Home />
+      </Tab>
+      <Tab name="Near" icon="../assets/icons/placeholder.svg">
+        <Near />
+      </Tab>
     </Tabs>
   </div>
 </template>
@@ -25,8 +25,9 @@
 import Home from './Home'
 import Profile from './Profile'
 import Near from './Near'
-import Tabs from '../components/Tabs'
-import Tab from '../components/Tab'
+import Tabs from '../components/tabs/Tabs'
+import Tab from '../components/tabs/Tab'
+import Header from '../components/components/Header'
 export default {
   name: "Main",
   components: {
@@ -34,7 +35,8 @@ export default {
     Profile,
     Near,
     Tabs,
-    Tab
+    Tab,
+    Header
   }
 };
 </script>

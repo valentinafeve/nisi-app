@@ -1,21 +1,56 @@
 /* eslint-disable */
 <template>
   <div class="content">
-    <div class="main_container" >
-      <div id="twitter_feed" style="display:none">
-      </div>
-      <div id="facebook_feed" style="display:block">
+    <div class="main_container">
+      <div
+        id="twitter_feed"
+        style="display:none"
+      />
+      <div
+        id="facebook_feed"
+        style="display:block"
+      >
         <div id="fb-root">
-          <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="" data-height="" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebooki</a></blockquote></div>
+          <div
+            class="fb-page"
+            data-href="https://www.facebook.com/facebook"
+            data-tabs="timeline"
+            data-width=""
+            data-height=""
+            data-small-header="true"
+            data-adapt-container-width="false"
+            data-hide-cover="true"
+            data-show-facepile="false"
+          >
+            <blockquote
+              cite="https://www.facebook.com/facebook"
+              class="fb-xfbml-parse-ignore"
+            >
+              <a href="https://www.facebook.com/facebook">Facebooki</a>
+            </blockquote>
+          </div>
         </div>
       </div>
-      <div id="instagram_feed" style="display:none">
-      </div>
-      <div id="feed" class="">
-        <div v-for="post in posts" v-bind:key="post">
-          <Post :id="post.id" :username="post.username" :author="post.author" :sn="post.sn" :picture_path="post.picture_path" :content="post.content.getElementsByClassName('timeline-Tweet-text')[0].textContent">
-
-          </Post>
+      <div
+        id="instagram_feed"
+        style="display:none"
+      />
+      <div
+        id="feed"
+        class=""
+      >
+        <div
+          v-for="post in posts"
+          :key="post"
+        >
+          <Post
+            :id="post.id"
+            :username="post.username"
+            :author="post.author"
+            :sn="post.sn"
+            :picture_path="post.picture_path"
+            :content="post.content.getElementsByClassName('timeline-Tweet-text')[0].textContent"
+          />
         </div>
       </div>
     </div>
@@ -79,18 +114,15 @@ function full_twitter_list(thisa){
 
 export default {
   name: "Home",
+  components:{
+    Post
+  },
   data(){
     return {
-      followings:[],
       twitter_posts:[],
       facebook_posts:[],
       instagram_posts:[],
     }
-  },
-  components:{
-    Post
-  },
-  methods:{
   },
   computed:{
     posts(){
@@ -143,7 +175,7 @@ export default {
     //     var followings=response.data.twitter.followings;
     //     followings.forEach(get_twitter_feed);
           // full_facebook_list(this);
-          render_fbs()
+          render_fbs();
     //   });
     // Gets tweets from Html and adds important fields in twitter_posts and in posts
 
@@ -151,6 +183,8 @@ export default {
   created(){
   },
   updated(){
+  },
+  methods:{
   }
 };
 </script>

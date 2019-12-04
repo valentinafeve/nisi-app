@@ -1,9 +1,6 @@
 /* eslint-disable */
 <template>
-<div class="margined small">
-
-
-</div>
+  <div class="margined small" />
 </template>
 <style>
 .margined.small{

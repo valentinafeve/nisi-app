@@ -1,21 +1,28 @@
 /* eslint-disable */
 <template>
-    <div class="content">
-      <div class="header">
-      </div>
-      <div class="main_container">
-        <div class="" v-for="user in near_users"  v-bind:key="user">
-          <NearUserCard :username="user.username" :picture_path="user.picture_path" >
-          </NearUserCard>
-        </div>
+  <div class="content">
+    <div class="main_container">
+      <div
+        v-for="user in near_users"
+        :key="user"
+        class=""
+      >
+        <NearUserCard
+          :username="user.username"
+          :picture_path="user.picture_path"
+        />
       </div>
     </div>
+  </div>
 </template>
 <script>
 import NearUserCard from '../components/NearUserCard';
 
 export default {
   name: "Near",
+  components:{
+    NearUserCard,
+  },
   data(){
     return {
       near_users:
@@ -33,16 +40,13 @@ export default {
         ]
     }
   },
+  mounted(){
+
+  },
   methods:{
     follow(){
 
     }
-  },
-  mounted(){
-
-  },
-  components:{
-    NearUserCard,
   }
 };
 

@@ -1,7 +1,5 @@
 <template>
-  <div class="">
-
-  </div>
+  <div class="" />
 </template>
 <script>
 
@@ -10,6 +8,10 @@ import axios from 'axios'
 export default {
   props: {
     timeout: { type: Number, default: 10000000 },
+  },
+  mounted(){
+    // this.presentLoading();
+    this.checkLoggedIn(this);
   },
   methods:{
     presentLoading() {
@@ -43,10 +45,6 @@ export default {
       //   // always executed
       // });
     }
-  },
-  mounted(){
-    // this.presentLoading();
-    this.checkLoggedIn(this);
   },
 }
 

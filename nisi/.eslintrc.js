@@ -1,15 +1,11 @@
 module.exports = {
-    rules: {
-        'no-console': 'off',
-	"parser": "babel-eslint",
-    	"parserOptions": {
-        	"ecmaVersion": 6,
-        	"sourceType": "module",
-        	"ecmaFeatures": {
-            		"jsx": true,
-            		"modules": true,
-            		"experimentalObjectRestSpread": true
-        	}
-    	},
-    },
-};
+  extends: [
+    // add more generic rulesets here, such as:
+    // 'eslint:recommended',
+    'plugin:vue/recommended'
+  ],
+  rules: {
+    // override/add rules settings here, such as:
+    // 'vue/no-unused-vars': 'error'
+  }
+}

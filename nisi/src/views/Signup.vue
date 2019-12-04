@@ -1,23 +1,44 @@
 /* eslint-disable */
 <template>
-<div class="margined small">
-  <ion-item>
-    <ion-label position="floating">Username</ion-label>
-    <ion-input :value="username" @input="username = $event.target.value"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" :value="password" @input="password = $event.target.value"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Phone</ion-label>
-    <ion-input type="phone" :value="phone" @input="phone = $event.target.value"></ion-input>
-  </ion-item>
-  <section>
-    <ion-button expand="block" @click="signup" >Sign up</ion-button>
-  </section>
-
-</div>
+  <div class="margined small">
+    <ion-item>
+      <ion-label position="floating">
+        Username
+      </ion-label>
+      <ion-input
+        :value="username"
+        @input="username = $event.target.value"
+      />
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Password
+      </ion-label>
+      <ion-input
+        type="password"
+        :value="password"
+        @input="password = $event.target.value"
+      />
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Phone
+      </ion-label>
+      <ion-input
+        type="phone"
+        :value="phone"
+        @input="phone = $event.target.value"
+      />
+    </ion-item>
+    <section>
+      <ion-button
+        expand="block"
+        @click="signup"
+      >
+        Sign up
+      </ion-button>
+    </section>
+  </div>
 </template>
 <style>
 .margined.small{
@@ -27,6 +48,7 @@
 
 <script>
 import axios from 'axios'
+var NBASEURL = "dsfahjk"
 
 export default{
   data(){
