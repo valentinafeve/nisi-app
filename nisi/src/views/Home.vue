@@ -8,28 +8,9 @@
       />
       <div
         id="facebook_feed"
-        style="display:block"
+        style="display:block; background: yellow;"
       >
-        <div id="fb-root">
-          <div
-            class="fb-page"
-            data-href="https://www.facebook.com/facebook"
-            data-tabs="timeline"
-            data-width=""
-            data-height=""
-            data-small-header="true"
-            data-adapt-container-width="false"
-            data-hide-cover="true"
-            data-show-facepile="false"
-          >
-            <blockquote
-              cite="https://www.facebook.com/facebook"
-              class="fb-xfbml-parse-ignore"
-            >
-              <a href="https://www.facebook.com/facebook">Facebooki</a>
-            </blockquote>
-          </div>
-        </div>
+        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
       </div>
       <div
         id="instagram_feed"
@@ -38,6 +19,7 @@
       <div
         id="feed"
         class=""
+        style="display:none"
       >
         <div
           v-for="post in posts"

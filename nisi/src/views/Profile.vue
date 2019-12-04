@@ -108,6 +108,11 @@
               </div>
             </div>
           </div>
+          <div class="more_card">
+            <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">
+              Log out
+            </button>
+          </div>
         </div>
       </div>
     </div>

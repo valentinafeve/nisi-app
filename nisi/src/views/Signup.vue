@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
   <div class="margined small">
-    <ion-item>
+    <!-- <ion-item>
       <ion-label position="floating">
         Username
       </ion-label>
@@ -37,7 +37,7 @@
       >
         Sign up
       </ion-button>
-    </section>
+    </section> -->
   </div>
 </template>
 <style>
