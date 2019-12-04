@@ -1,9 +1,9 @@
 /* eslint-disable */
 <template>
   <div overflow-scroll="true">
-    <div>
+    <div class="main_container">
       <div>
-        <div class="main_container">
+        <div>
           <div class="first_card">
             <div
               class="card full_shadow"
@@ -109,16 +109,11 @@
             </div>
           </div>
           <div class="more_card">
-            <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">
+            <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--aqua-to-blue radius-md">
               Log out
             </button>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="">
-      <div class="btn">
-        Log out
       </div>
     </div>
   </div>
@@ -128,9 +123,9 @@ export default {
   name: "Profile",
   data(){
     return {
-      username: 'anakarenina',
-      first_name: 'Ana',
-      last_name: 'Karenina',
+      username: 'cclevin',
+      first_name: 'Constantino',
+      last_name: 'Levin',
       rating: 3.9,
       p_picture: '',
       about: 'I am Ana Karenina',

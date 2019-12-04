@@ -11,7 +11,7 @@
           :href="tab.href"
           @click="selectTab(tab)"
           >{{ tab.name }}</a> -->
-          <img :src="tab.icon" alt="" height="22px" @click="selectTab(tab)">
+          <img :src="tab.icon" alt="" height="30px" @click="selectTab(tab)">
         </div>
         </div>
       </div>
@@ -54,10 +54,10 @@
 
     width: 100%;
     z-index: 3;
-    height: 45px;
+    height: 55px;
     background: white;
-    position: fixed;
     bottom: 0;
+    position: fixed;
     box-shadow: 0px 0 8px rgba(100, 100, 100, 0.2);
     padding-left:10%;
     padding-right:10%;
@@ -66,9 +66,9 @@
     margin: 0 auto;
   }
   .tab_bar .tab_button{
-    margin-left: 11%;
-    margin-right: 11%;
-    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 12px;
     display: inline-block;
   }
 </style>

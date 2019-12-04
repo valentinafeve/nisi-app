@@ -1,54 +1,52 @@
-/* eslint-disable */
 <template>
-  <div class="margined small">
-    <!-- <ion-item>
-      <ion-label position="floating">
-        Username
-      </ion-label>
-      <ion-input
-        :value="username"
-        @input="username = $event.target.value"
-      />
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Password
-      </ion-label>
-      <ion-input
-        type="password"
-        :value="password"
-        @input="password = $event.target.value"
-      />
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Phone
-      </ion-label>
-      <ion-input
-        type="phone"
-        :value="phone"
-        @input="phone = $event.target.value"
-      />
-    </ion-item>
-    <section>
-      <ion-button
-        expand="block"
-        @click="signup"
-      >
-        Sign up
-      </ion-button>
-    </section> -->
+  <div class="">
+    <Header>
+      Nisi
+    </Header>
+    <div class="main_container">
+      <div class="form_container">
+        <div class="card full_shadow" style="border: none; border-radius: 20px;">
+          <div class="nisi_form">
+            <div class="picture_form">
+              <div class="button_add_picture full_shadow_medium">
+                <img src="../assets/icons/add.svg" alt="...">
+              </div>
+            </div>
+            <div class="form-group">
+              <input :value="username" class="form-input" type="text" id="input-example-1" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input :value="password" class="form-input password" type="password" id="input-example-1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input :value="password" class="form-input" type="password" id="input-example-1" placeholder="Email">
+            </div>
+          </div>
+          <div class="">
+            <div class="session_buttons">
+              <button class="button_login g-btn g-btn--purple-to-aqua radius-md">
+                Sign up
+              </button>
+            </div>
+            <div class="session_buttons">
+              <a href="/#/login">Log in</a>
+              <!-- <button class="button_login g-btn g-btn--purple-to-aqua radius-md">
+              Sign up
+            </button> -->
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
   </div>
 </template>
-<style>
-.margined.small{
-  margin: 30px;
-}
-</style>
 
 <script>
 import axios from 'axios'
 var NBASEURL = "dsfahjk"
+import Header from '../components/components/Header'
 
 export default{
   data(){
@@ -58,6 +56,9 @@ export default{
       password: '',
       phone:'',
     }
+  },
+  components:{
+    Header
   },
   methods: {
     signup(){
@@ -79,3 +80,22 @@ export default{
   }
 };
 </script>
+<style media="screen">
+  .picture_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .button_add_picture{
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button_add_picture *{
+    height: 25px;
+  }
+</style>

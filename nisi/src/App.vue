@@ -5,16 +5,11 @@
   >
     <div class="">
       <router-view />
-      <Main />
     </div>
   </div>
 </template>
 <script type="text/javascript">
-import Main from './views/Main'
 export default {
 name: 'App',
-components: {
-  Main
-}
 }
 </script>

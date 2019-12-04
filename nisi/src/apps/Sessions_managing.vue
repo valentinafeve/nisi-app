@@ -1,5 +1,7 @@
 <template>
-  <div class="" />
+  <div class="">
+    Loading...
+  </div>
 </template>
 <script>
 
@@ -11,7 +13,8 @@ export default {
   },
   mounted(){
     // this.presentLoading();
-    this.checkLoggedIn(this);
+    // this.checkLoggedIn(this);
+    this.$router.push({name: 'login'})
   },
   methods:{
     presentLoading() {
