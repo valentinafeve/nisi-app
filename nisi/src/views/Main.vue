@@ -1,8 +1,5 @@
 <template>
   <div class="">
-    <Header>
-      Nisi
-    </Header>
     <Tabs>
       <Tab
         name="Profile"
@@ -27,7 +24,6 @@ import Profile from './Profile'
 import Near from './Near'
 import Tabs from '../components/tabs/Tabs'
 import Tab from '../components/tabs/Tab'
-import Header from '../components/components/Header'
 export default {
   name: "Main",
   components: {
@@ -36,7 +32,6 @@ export default {
     Near,
     Tabs,
     Tab,
-    Header
   }
 };
 </script>

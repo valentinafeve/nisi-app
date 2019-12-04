@@ -1,6 +1,7 @@
 <template>
   <div class="header g-btn--aqua-to-blue radius-md">
     <slot></slot>
+    <slot name="icon"></slot>
   </div>
 </template>
 

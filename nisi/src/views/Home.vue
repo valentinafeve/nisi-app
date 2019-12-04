@@ -1,6 +1,9 @@
 /* eslint-disable */
 <template>
   <div class="content">
+    <Header>
+      Nisi
+    </Header>
     <div class="main_container">
       <div
         id="twitter_feed"
