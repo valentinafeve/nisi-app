@@ -5,8 +5,7 @@ Users will be able to find users who are near and follow them, follow a user in 
 
 Nisi is developed using vue js and even though was started with Ionic, components were replaced. In the android folder there is an Android Project folder which can be edited with android studio.
 
-Nisi development was made following this tutorial:
-https://www.smashingmagazine.com/2018/07/mobile-apps-capacitor-vue-js/
-where instructions for building and serving will be found.
+Nisi development was made following [this post](https://www.smashingmagazine.com/2018/07/mobile-apps-capacitor-vue-js/).
+Instructions for building and serving will be found there too.
 
-This app is inspired by the Episode 01 Season 03 (Nosedive) from Black Mirror.  
+This app is inspired by the Episode 01 Season 03 (Nosedive) from Black Mirror. 
