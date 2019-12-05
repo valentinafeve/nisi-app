@@ -3,6 +3,9 @@
   <div class="content">
     <Header>
       Nisi
+      <div class="icon" @click="to_notifications()">
+        <img src="../assets/icons/bell.svg" alt="" height="25px">
+      </div>
     </Header>
     <div class="main_container">
       <div
@@ -42,7 +45,8 @@
 </template>
 <script>
 import Post from '../components/feed/Post'
-// import axios from 'axios'
+import Header from '../components/components/Header';
+import axios from 'axios'
 import { render_tweets } from '../scripts/twitter_render.js'
 import { render_fbs } from '../scripts/facebook_render.js'
 
@@ -133,14 +137,14 @@ function full_twitter_list(thisa){
       for( li of tweets){
         var time_element = li.children[0].getElementsByClassName("timeline-Tweet-metadata")[0].children[0].children[0];
         var header= li.children[0].getElementsByClassName("timeline-Tweet-author")[0];
-        var picture_path = header.getElementsByClassName("TweetAuthor-avatar")[0].children[0].currentSrc;
+        var picture_path_author = header.getElementsByClassName("TweetAuthor-avatar")[0].children[0].currentSrc;
         var tweet_author = header.children[1].children[0].children[0].children[1].innerHTML
         var tweet_dict=
         {
           id : li.children[0].attributes[1].value,
           username: username,
           tweet_author: tweet_author,
-          picture_path: picture_path,
+          picture_path: picture_path_author,
           content: li.children[0],
           sn:'Twitter',
           time : Date.parse(time_element.dateTime)
@@ -157,7 +161,8 @@ function full_twitter_list(thisa){
 export default {
   name: "Home",
   components:{
-    Post
+    Post,
+    Header,
   },
   data(){
     return {
@@ -197,17 +202,17 @@ export default {
   },
   mounted(){
 
-    //   return axios.post(
-    //   NBASEURL+'/get_twitter_followings/',{
-    //   body: {
-    //   },
-    // }).then(function (response) {
-    //     var followings=response.data.twitter.followings;
-          var twitter_followings = ['jlo', 'wradiocolombia']
+    return axios.post(
+      NBASEURL+'/fd/twfollowings/',{
+      body: {
+      },
+    }).then(function (response) {
+        var followings=response.data.twitter.followings;
+          var twitter_followings = ['linuxtoday','ubuntu','climagic','nixcraft','TheEllenShow','BarackObama','Oprah','realDonaldTrump','jimmyfallon', 'wradiocolombia']
           twitter_followings.forEach(get_twitter_feed);
           full_twitter_list(this);
           render_tweets();
-    //   });
+      });
 
     //   return axios.post(
     //   NBASEURL+'/get_twitter_followings/',{
@@ -229,6 +234,9 @@ export default {
   updated(){
   },
   methods:{
+    to_notifications(){
+      this.$router.push("notifications")
+    }
   }
 };
 </script>

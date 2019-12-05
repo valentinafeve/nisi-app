@@ -11,7 +11,7 @@
           :href="tab.href"
           @click="selectTab(tab)"
           >{{ tab.name }}</a> -->
-          <img :src="tab.icon" alt="" height="30px" @click="selectTab(tab)">
+          <img :src="tab.icon" alt="" height="23px" @click="selectTab(tab)">
         </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
 
     width: 100%;
     z-index: 3;
-    height: 55px;
+    height: 60px;
     background: white;
     bottom: 0;
     position: fixed;

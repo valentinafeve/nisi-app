@@ -8,10 +8,10 @@
         <div class="card full_shadow" style="border: none; border-radius: 20px;">
           <div class="nisi_form">
             <div class="form-group">
-              <input :value="username" class="form-input" type="text" id="input-example-1" placeholder="Username">
+              <input v-model="username" class="form-input" placeholder="Username">
             </div>
             <div class="form-group">
-              <input :value="password" style="display: inline-block; width: 80%;" class="form-input password" type="password" id="input-example-1" placeholder="Password">
+              <input v-model="password" style="display: inline-block; width: 80%;" class="form-input password" type="password" placeholder="Password">
               <div class="" style="display: inline-block; width: 12%; height: 100%; margin-left:10px; vertical-align: middle;">
                 <div class="button_view_password">
                   <img src="../assets/icons/view.svg" alt="">
@@ -21,7 +21,7 @@
           </div>
           <div class="">
             <div class="session_buttons">
-              <button class="button_login g-btn g-btn--purple-to-aqua radius-md">
+              <button @click="signin" class="button_login g-btn g-btn--purple-to-aqua radius-md">
                 Log in
               </button>
             </div>
@@ -56,41 +56,32 @@ import Header from '../components/components/Header'
 export default{
   data(){
     return {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
     }
   },
   components:{
     Header
   },
   methods: {
-    login(thisa=this){
+    signin(){
+      var username = this.username
+      var password = this.password
+      var router = this.$router
+      console.log("We'll send a post "+password)
       axios.post(
-      '/login/',{
+      NBASEURL+'/nu/signin/',{
       body: {
-        username : this.username,
-        password : this.password
+        username : username,
+        password : password
       },
     }).then(function (response) {
-        if (response.data.logged){
-          thisa.$router.push({name: 'home'})
+        console.log(response.data)
+        if(response.data.status.ok){
+          router.push("home")
         }
         else{
-          const toast = document.createElement('ion-toast');
-          toast.header = 'Toast header';
-          toast.message = 'Click to Close';
-          toast.position = 'bottom';
-          toast.buttons = [{
-              text: 'Login failed',
-              role: 'cancel',
-              // handler: () => {
-              //
-              // }
-            }
-          ];
-
-          document.body.appendChild(toast);
-          return toast.present();
+          console.log("Authentication failed")
         }
       })
     },

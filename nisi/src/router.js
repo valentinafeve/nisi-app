@@ -7,6 +7,9 @@ import Profile from './views/Profile'
 import Near from './views/Near'
 import Login from './views/Login'
 import Signup from './views/Signup'
+import Notifications from './views/Notifications'
+import Settings from './views/Settings'
+
 
 Vue.use(VueRouter)
 
@@ -50,6 +53,16 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: Signup,
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings,
+  },
+  {
+    path: '/notifications',
+    name: 'notifications',
+    component: Notifications,
   },
 ]
 

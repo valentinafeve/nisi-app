@@ -20,11 +20,13 @@
 </template>
 <script>
 import NearUserCard from '../components/NearUserCard';
+import Header from '../components/components/Header';
 
 export default {
   name: "Near",
   components:{
     NearUserCard,
+    Header,
   },
   data(){
     return {

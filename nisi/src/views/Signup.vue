@@ -13,18 +13,18 @@
               </div>
             </div>
             <div class="form-group">
-              <input :value="username" class="form-input" type="text" id="input-example-1" placeholder="Username">
+              <input v-model="username" class="form-input" type="text" placeholder="Username">
             </div>
             <div class="form-group">
-              <input :value="password" class="form-input password" type="password" id="input-example-1" placeholder="Password">
+              <input v-model="password" class="form-input password" type="password" placeholder="Password">
             </div>
             <div class="form-group">
-              <input :value="password" class="form-input" type="password" id="input-example-1" placeholder="Email">
+              <input v-model="phone" class="form-input" placeholder="Phone">
             </div>
           </div>
           <div class="">
             <div class="session_buttons">
-              <button class="button_login g-btn g-btn--purple-to-aqua radius-md">
+              <button @click="signup" class="button_login g-btn g-btn--purple-to-aqua radius-md">
                 Sign up
               </button>
             </div>
@@ -45,7 +45,6 @@
 
 <script>
 import axios from 'axios'
-var NBASEURL = "dsfahjk"
 import Header from '../components/components/Header'
 
 export default{
@@ -62,20 +61,25 @@ export default{
   },
   methods: {
     signup(){
-      var thisa = this;
+      var username = this.username
+      var password = this.password
+      var phone = this.phone
       axios.post(
-      NBASEURL+'/signup/',{
-        body: {
-        username : this.username,
-        password : this.password,
-        phone: this.phone,
-        },
-      }).then(
-        function (response){
-          thisa.info = response.data;
-          thisa.$router.push({name: 'home'});
+      NBASEURL+'/nu/signup/',{
+      body: {
+        username : username,
+        password : password,
+        phone : phone,
+      },
+    }).then(function (response) {
+        console.log(response.data)
+        if(response.data.status.ok){
+          router.push("home")
         }
-    )
+        else{
+          console.log("Sign up failed")
+        }
+      })
     },
   }
 };

@@ -3,10 +3,6 @@
     <div :class="{post:true, card:true, full_shadow:true, dimmed:dimmed}"
       style="border-radius: 10px"
       @click="ratable">
-      <div class="rating_pane">
-          <Rating class="">
-          </Rating>
-      </div>
       <div class="post_content">
           <div
           class="card-header"
@@ -26,9 +22,14 @@
               </div>
             </div>
           </div>
+          <div class="divider" />
           <div class="" style="font-size:0.6em">
             {{ content }}
           </div>
+      </div>
+      <div class="rating_pane">
+          <Rating class="">
+          </Rating>
       </div>
     </div>
   </div>
@@ -51,11 +52,14 @@ export default {
       this.dimmed=!this.dimmed;
     }
   },
-  props:['id', 'content', 'picturePath', 'username', 'author', 'sn']
+  props:['id', 'content', 'picture_path', 'username', 'author', 'sn']
 }
 </script>
 
 <style media="screen">
+  .post{
+    position: relative;
+  }
   .post.card{
       border-radius: 30px;
   }
@@ -87,9 +91,9 @@ export default {
     display: block;
   }
   .rating_pane{
-    position: fixed;
-    display: block !important;
-    width: inherit;
+    top: 34%;
+    left: 10%;
+    position: absolute;
     visibility: hidden;
   }
   /* .rating_pane .rating{

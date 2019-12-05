@@ -3,6 +3,9 @@
   <div overflow-scroll="true">
     <Header>
       Nisi
+      <div class="icon" @click="to_settings">
+        <img src="../assets/icons/settings.svg" alt="" height="26px">
+      </div>
     </Header>
     <div class="main_container">
       <div>
@@ -60,70 +63,23 @@
               </div>
             </div>
           </div>
-          <div class="second_card">
-            <div
-              class="card full_shadow"
-              style="border: none; border-radius: 20px; font-size: 0.8em;"
-            >
-              <div class="social_network_panel">
-                <img
-                  src="../../public/assets/icons/twitter.svg"
-                  alt="Home"
-                  weight="28px"
-                  height="24px"
-                >
-                <div
-                  class=""
-                  style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-                >
-                  {{ sns.twitter }}
-                </div>
-              </div>
-              <div class="divider" />
-              <div class="social_network_panel">
-                <img
-                  src="../../public/assets/icons/instagram.svg"
-                  alt="Home"
-                  weight="28px"
-                  height="22px"
-                >
-                <div
-                  class=""
-                  style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-                >
-                  {{ sns.instagram }}
-                </div>
-              </div>
-              <div class="divider" />
-              <div class="social_network_panel">
-                <img
-                  src="../../public/assets/icons/facebook.svg"
-                  alt="Home"
-                  weight="28px"
-                  height="24px"
-                >
-                <div
-                  class=""
-                  style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-                >
-                  {{ sns.facebook }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="more_card">
-            <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--aqua-to-blue radius-md">
-              Log out
-            </button>
-          </div>
+          <SNCard :sns="sns">
+          </SNCard>
+
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Header from '../components/components/Header';
+import SNCard from '../components/Profile/SNCard'
 export default {
   name: "Profile",
+  components:{
+    Header,
+    SNCard,
+  },
   data(){
     return {
       username: 'cclevin',
@@ -134,11 +90,17 @@ export default {
       about: 'I am Ana Karenina',
       irated: 23,
       ratedme: 2009,
-      sns:{
+      sns: {
+        telegram: 'Valentinaf',
         instagram: 'valntinay',
         facebook: 'valentinayatev',
         twitter: 'rvalfo'
       }
+    }
+  },
+  methods:{
+    to_settings(){
+      this.$router.push("settings")
     }
   },
   beforeCreate(){

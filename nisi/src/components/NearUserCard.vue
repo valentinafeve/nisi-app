@@ -17,7 +17,7 @@
           {{ username }}
         </div>
         <div class="follow">
-          <button class="button_follow full_shadow g-btn g-btn--aqua-to-blue radius-md">
+          <button class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">
             Follow
           </button>
         </div>
