@@ -6,7 +6,7 @@
       <div class="post_content">
           <div
           class="card-header"
-          style="height: 35px; padding: 0px; display:block; width:100%;"
+          style="height: 35px; padding: 0px; display:block;"
           >
             <div class="card_image">
               <figure class="avatar avatar-sm">

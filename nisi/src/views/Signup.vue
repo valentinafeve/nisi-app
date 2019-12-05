@@ -74,6 +74,7 @@ export default{
     }).then(function (response) {
         console.log(response.data)
         if(response.data.status.ok){
+          session_cookie = response.data.session.token
           router.push("home")
         }
         else{

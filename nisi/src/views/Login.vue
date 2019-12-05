@@ -52,6 +52,7 @@
 <script>
 import axios from 'axios'
 import Header from '../components/components/Header'
+import qs from 'qs'
 
 export default{
   data(){
@@ -69,15 +70,25 @@ export default{
       var password = this.password
       var router = this.$router
       console.log("We'll send a post "+password)
-      axios.post(
-      NBASEURL+'/nu/signin/',{
-      body: {
+      let url = NBASEURL+'/nu/signin/';
+      var body = {
         username : username,
         password : password
-      },
-    }).then(function (response) {
+      };
+      let csrftoken = getCookie('csrftoken');
+      axios.post(url,
+        {
+
+          headers: { 'X-CSRFToken': csrftoken },
+          body: {
+            username : username,
+            password : password
+          }
+
+      }).then(function (response) {
         console.log(response.data)
         if(response.data.status.ok){
+          session_cookie = response.data.session.token
           router.push("home")
         }
         else{

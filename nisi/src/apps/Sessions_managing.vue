@@ -13,8 +13,7 @@ export default {
   },
   mounted(){
     // this.presentLoading();
-    // this.checkLoggedIn(this);
-    this.$router.push({name: 'login'})
+    this.checkLoggedIn(this);
   },
   methods:{
     presentLoading() {
@@ -30,17 +29,18 @@ export default {
           return l.present()
         })
     },
-    checkLoggedIn(thisa){
-      axios.get('/sessions_managing/')
-      .then(function (response) {
-        // handle success
-        if (response.data.logged){
-          thisa.$router.push({name: 'home'})
-        }
-        else{
-          thisa.$router.push({name: 'login'})
-        }
-      })
+    checkLoggedIn(){
+      var router = this.$router;
+      // axios.get('/sessions_managing/')
+      // .then(function (response) {
+      //   // handle success
+      //   if (response.data.logged){
+      //     thisa.$router.push({name: 'home'})
+      //   }
+      //   else{
+          router.push({name: 'home'})
+      //   }
+      // })
       // .catch(function (error) {
       //   // handle error
       // })

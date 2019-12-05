@@ -121,6 +121,7 @@ function get_twitter_feed(user){
 
 function full_twitter_list(thisa){
 
+  var twitter_posts = thisa.twitter_posts;
   var interval = setInterval(get_tweets, 10000);
 
   function stop_rendering_twitter() {
@@ -149,8 +150,7 @@ function full_twitter_list(thisa){
           sn:'Twitter',
           time : Date.parse(time_element.dateTime)
         }
-        thisa.twitter_posts.push(tweet_dict)
-        thisa.posts.push(tweet_dict)
+        twitter_posts.push(tweet_dict)
       }
     }
     stop_rendering_twitter();
@@ -201,16 +201,17 @@ export default {
     }
   },
   mounted(){
-
+    var thisa = this;
     return axios.post(
       NBASEURL+'/fd/twfollowings/',{
       body: {
       },
     }).then(function (response) {
-        var followings=response.data.twitter.followings;
-          var twitter_followings = ['linuxtoday','ubuntu','climagic','nixcraft','TheEllenShow','BarackObama','Oprah','realDonaldTrump','jimmyfallon', 'wradiocolombia']
+          var twitter_followings = response.data.twitter.users;
+          console.log("Users I read")
+          console.log(twitter_followings)
           twitter_followings.forEach(get_twitter_feed);
-          full_twitter_list(this);
+          full_twitter_list(thisa);
           render_tweets();
       });
 
