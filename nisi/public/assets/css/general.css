@@ -22,3 +22,8 @@ body {
   margin-bottom: 20px;
   padding: 20px;
 }
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

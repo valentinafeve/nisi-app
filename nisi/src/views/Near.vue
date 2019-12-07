@@ -29,9 +29,7 @@
 <script>
 import NearUserCard from '../components/NearUserCard';
 import Header from '../components/components/Header';
-import JQuery from 'jquery'
 import axios from 'axios'
-let $ = JQuery
 
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;

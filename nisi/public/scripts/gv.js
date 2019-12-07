@@ -1,8 +1,7 @@
 let NBASEURL = "http://192.168.0.18:8000"
-var session_cookie = "30de716618818883a515fc2d024215b928a9b645d35c1121921cf358"
-var global_theme = "g-btn--pink-to-orange"
+var session_cookie = "05d64bb565c62e3a2c4a8316ac6b2a46fce743af66235ae02e0aca2e"
+var global_theme = "g-btn--aqua-to-blue"
 
-// let NBASEURL = "http://191.232.209.159"
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {

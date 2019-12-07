@@ -9,9 +9,12 @@
           <button @click="update_profile" type="button" name="button">Update profile</button>
           <div class="card full_shadow" style="border: none; border-radius: 10px;">
             <div class="picture_form">
-              <div class="button_add_picture">
-                <img src="../assets/icons/add.svg" alt="...">
-              </div>
+              <label for="pp_file">
+                <div class="button_add_picture full_shadow_medium">
+                  <img src="../assets/icons/add.svg" alt="...">
+                  <input id="pp_file" type='file' style="display:none"/>
+                </div>
+              </label>
             </div>
             <div class="form-group">
               <div class="form_input">
@@ -60,7 +63,7 @@
           <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--aqua radius-md">
             Change password
           </button>
-          <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--aqua radius-md">
+          <button @click="logout" style="width: 100%;" class="button_follow full_shadow g-btn g-btn--aqua radius-md">
             Log out
           </button>
           <button style="width: 100%;" class="button_follow full_shadow g-btn g-btn--dark-red radius-md">
@@ -112,6 +115,20 @@ export default{
     Header,
     SNCardEditable
   },
+  mounted(){
+    var url = NBASEURL+"/nu/profile/"
+    var thisa = this;
+    axios.post(url,
+      {
+        body: {
+          session_cookie: session_cookie,
+        }
+    }).then(function (response) {
+      if(response.data.status.ok){
+        thisa.profile=response.data.profile;
+      }
+    })
+  },
   methods: {
     update_profile(){
       var url = NBASEURL+"/nu/profile/"
@@ -131,6 +148,10 @@ export default{
       console.log("Setting theme "+theme)
       global_theme=theme;
     },
+    logout(){
+      session_cookie="";
+      this.$router.push("login")
+    }
   }
 }
 </script>

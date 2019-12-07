@@ -32,6 +32,6 @@ export default {
     Near,
     Tabs,
     Tab,
-  }
+  },
 };
 </script>

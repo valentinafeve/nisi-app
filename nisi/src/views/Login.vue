@@ -162,7 +162,7 @@ export default{
     margin-bottom: 8px;
   }
   .button_login{
-    font-size: 1em;
+    font-size: 0.8em;
     vertical-align: middle;
     top: 0px;
     padding-top:6px;

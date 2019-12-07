@@ -99,6 +99,7 @@ export default{
   },
   methods: {
     signup(){
+      var router = this.$router
       var username = this.username
       var password = this.password
       var phone = this.phone

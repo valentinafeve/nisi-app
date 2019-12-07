@@ -87,7 +87,7 @@ export default {
     return {
       profile: {
         sns:{
-          
+
         }
       }
     }
@@ -112,7 +112,18 @@ export default {
     }
   },
   mounted(){
-    update_profile()
+    var url = NBASEURL+"/nu/profile/"
+    var thisa = this;
+    axios.post(url,
+      {
+        body: {
+          session_cookie: session_cookie,
+        }
+    }).then(function (response) {
+      if(response.data.status.ok){
+        thisa.profile=response.data.profile;
+      }
+    })
   }
   ,
 };

@@ -326,5 +326,8 @@
 .g-btn--add{
   background: -webkit-gradient(linear, left top, left bottom, from(#88d840), to(#67b826));
   background: linear-gradient(#88d840, #67b826)
-
 }
+
+.g-btn--ig{
+  background: rgb(64,93,230);
+  background: linear-gradient(90deg, rgba(64,93,230,1) 3%, rgba(88,81,219,1) 22%, rgba(193,53,132,1) 51%, rgba(253,29,29,1) 100%);}
