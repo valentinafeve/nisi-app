@@ -1,5 +1,5 @@
-let NBASEURL = "http://192.168.0.13:8000"
-var session_cookie = ""
+let NBASEURL = "http://192.168.0.18:8000"
+var session_cookie = "791192068bdd48d022a5e63a90fea2da3bf56e371638b3b566b741be"
 
 // let NBASEURL = "http://191.232.209.159"
 function getCookie(name) {

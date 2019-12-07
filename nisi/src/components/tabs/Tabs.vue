@@ -3,16 +3,14 @@
     <div class="tabs">
       <div class="tab_bar">
         <div class="tab_buttons">
-          <div
-          v-for="tab in tabs"
-          :key="tab"
-          :class="{ 'tab_button':true, 'is-active': tab.isActive }">
-          <!-- <a
-          :href="tab.href"
-          @click="selectTab(tab)"
-          >{{ tab.name }}</a> -->
-          <img :src="tab.icon" alt="" height="23px" @click="selectTab(tab)">
-        </div>
+          <div class="centered">
+            <div
+            v-for="tab in tabs"
+            :key="tab"
+            :class="{ 'tab_button':true, 'is-active': tab.isActive }">
+            <img :src="tab.icon" alt="" height="23px" @click="selectTab(tab)">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -62,8 +60,15 @@
     padding-left:10%;
     padding-right:10%;
   }
+  .centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  	margin-top: 8px;
+    /* background: yellow; */
+  }
   .tab_buttons{
-    margin: 0 auto;
+
   }
   .tab_bar .tab_button{
     margin-left: 10%;
