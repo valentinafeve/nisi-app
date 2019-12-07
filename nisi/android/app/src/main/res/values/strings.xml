@@ -4,4 +4,6 @@
     <string name="title_activity_main">Nisi</string>
     <string name="package_name">com.vue.nisi</string>
     <string name="custom_url_scheme">com.vue.nisi</string>
+    <string name="facebook_app_id">477943439520471</string>
+    <string name="fb_login_protocol_scheme">fb477943439520471</string>
 </resources>

@@ -72,6 +72,7 @@
 <script>
 import Header from '../components/components/Header'
 import SNCardEditable from '../components/Profile/SNCardEditable'
+
 export default{
   name:"Settings",
   data(){
@@ -91,7 +92,6 @@ export default{
     SNCardEditable
   },
   methods: {
-
   }
 }
 </script>

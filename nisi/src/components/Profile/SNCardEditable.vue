@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="divider" />
-        <div class="social_network_panel">
+        <div class="social_network_panel" @click="fb_settings">
           <img
             src="../../../public/assets/icons/facebook.svg"
             alt="Home"
@@ -70,6 +70,12 @@
 </template>
 
 <script>
+import { registerWebPlugin } from '@capacitor/core';
+import { FacebookLogin } from '@rdlabo/capacitor-facebook-login';
+
+import { Plugins } from '@capacitor/core';
+import { FacebookLoginResponse } from '@rdlabo/capacitor-facebook-login';
+
 export default {
   name: 'SNCardEditable',
   data(){
@@ -77,6 +83,23 @@ export default {
     }
   },
   methods:{
+    fb_settings(){
+      alert("Wporking")
+      console.log("Logging facebook")
+      // await loggin()
+      async function loggin(){
+        const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
+        const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS });
+
+        if (result.accessToken) {
+          // Login successful.
+          console.log(`Facebook access token is ${result.accessToken.token}`);
+        } else {
+          // Cancelled by user.
+        }
+        return 1;
+      }
+    }
   },
   props:['sns']
 }

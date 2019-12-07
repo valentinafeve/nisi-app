@@ -18,7 +18,7 @@
       <div class="">
         <button @click="getLocatioon()" type="button" name="button">Show location</button>
         <button @click="showito()" type="button" name="button">Show alert</button>
-        <div class="">
+        <div id="feedito" class="">
           {{ latitude }}
           {{ longitude }}
         </div>
@@ -30,6 +30,8 @@
 import NearUserCard from '../components/NearUserCard';
 import Header from '../components/components/Header';
 import 'capacitor-fancy-geo'
+import JQuery from 'jquery'
+let $ = JQuery
 
 import { Plugins } from '@capacitor/core';
 
@@ -59,11 +61,10 @@ export default {
     follow(){
 
     },
-    async showito(){
-      await Plugins.Modals.alert({
-          title: 'Alert',
-          message: 'This is an example alert box'
-      });
+    showito(){
+      // var feedi =
+      $("#feedito").load("https://m.facebook.com/ruastabi");
+      // .load("http://capacitor.ionicframework.com/")
     },
     getLocatioon() {
       var Geolocation = Plugins.Geolocation;
@@ -90,5 +91,8 @@ export default {
   }
   ion-title{
     font-size: 0.9em;
+  }
+  #feedito{
+    background:pink;
   }
 </style>

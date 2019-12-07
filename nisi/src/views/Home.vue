@@ -14,7 +14,7 @@
       />
       <div
         id="facebook_feed"
-        style="display:none;"
+        style="display:block;"
       >
       </div>
       <div
@@ -24,7 +24,7 @@
       <div
         id="feed"
         class=""
-        style="display:block"
+        style="display:none"
       >
         <div
           v-for="post in posts"
