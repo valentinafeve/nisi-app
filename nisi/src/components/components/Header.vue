@@ -1,5 +1,5 @@
 <template>
-  <div class="header g-btn--purple-to-blue radius-md">
+  <div :class="[{'header':true}, theme, {'radius-md':true}]">
     <slot></slot>
   </div>
 </template>
@@ -11,10 +11,13 @@ export default {
   name: "header",
   data(){
     return {
-
+      theme:""
     }
   },
   methods:{
+  },
+  mounted(){
+    this.theme = global_theme;
   }
 }
 </script>

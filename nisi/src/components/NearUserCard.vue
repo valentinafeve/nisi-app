@@ -17,7 +17,7 @@
           {{ username }}
         </div>
         <div class="follow">
-          <button class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">
+          <button @click="follow" class="button_follow full_shadow g-btn g-btn--purple-to-blue radius-md">
             Follow
           </button>
         </div>
@@ -27,28 +27,34 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: "NearUserCard",
-  props:['username','picturePath'],
+  props:['username','picture_path'],
   data(){
     return {
       followed: false,
     }
   },
   methods:{
-    // follow(){
-    //   // this.followed = true;
-    //   //   return axios.post(
-    //   //   NBASEURL+'/follow/'+this.username+'/',{
-    //   //   body: {
-    //   //   },
-    //   // })
-    //   // .then(function (response) {
-    //   //
-    //   //   });
-    // }
+    follow(){
+      this.followed = true;
+      let url = NBASEURL+"/net/follow/"
+      var usrname = this.username
+      axios.post(url,
+        {
+          body: {
+            session_cookie: session_cookie,
+            user:{
+              username: this.username,
+            }
+          }
+      }).then(function (response) {
+        if(response.data.status.ok){
+        }
+      })
+    }
   }
 }
 </script>

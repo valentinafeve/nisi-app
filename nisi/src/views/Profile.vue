@@ -9,6 +9,7 @@
     </Header>
     <div class="main_container">
       <div>
+        <button @click="update_profile" type="button" name="button">Update profile</button>
         <div>
           <div class="first_card">
             <div
@@ -21,7 +22,7 @@
               >
                 <figure class="avatar avatar-xl">
                   <img
-                    src="img/avatar-1.png"
+                    :src="profile.picture_path"
                     alt="..."
                   >
                 </figure>
@@ -31,19 +32,19 @@
                   class="card-title h5"
                   style="text-align: center"
                 >
-                  {{ username }}
+                  {{ profile.username }}
                 </div>
                 <div
                   class="card-subtitle"
                   style="text-align: center"
                 >
-                  {{ first_name }} {{ last_name }}
+                  {{ profile.first_name }} {{ profile.last_name }}
                 </div>
                 <div
                   class="card-subtitle text-gray"
                   style="text-align: center"
                 >
-                  {{ about }}
+                  {{ profile.about }}
                 </div>
               </div>
               <div class="divider" />
@@ -51,19 +52,19 @@
                 class="card-body"
                 style="text-align: center; font-size: 40px; margin-bottom: 20px;"
               >
-                {{ rating }}
+                {{ profile.rating }}
               </div>
               <div
                 class="card-body"
                 style="text-align: center; display: none;"
               >
-                I rated: {{ irated }}
+                I rated: {{ profile.irated }}
                 <br>
-                Rated me: {{ ratedme }}
+                Rated me: {{ profile.ratedme }}
               </div>
             </div>
           </div>
-          <SNCard :sns="sns">
+          <SNCard :sns="profile.sns">
           </SNCard>
 
         </div>
@@ -74,6 +75,8 @@
 <script>
 import Header from '../components/components/Header';
 import SNCard from '../components/Profile/SNCard'
+import axios from 'axios'
+
 export default {
   name: "Profile",
   components:{
@@ -82,29 +85,36 @@ export default {
   },
   data(){
     return {
-      username: 'cclevin',
-      first_name: 'Constantino',
-      last_name: 'Levin',
-      rating: 3.9,
-      p_picture: '',
-      about: 'I am Ana Karenina',
-      irated: 23,
-      ratedme: 2009,
-      sns: {
-        telegram: 'Valentinaf',
-        instagram: 'valntinay',
-        facebook: 'valentinayatev',
-        twitter: 'rvalfo'
+      profile: {
+        sns:{
+          
+        }
       }
     }
   },
   methods:{
     to_settings(){
       this.$router.push("settings")
+    },
+    update_profile(){
+      var url = NBASEURL+"/nu/profile/"
+      var thisa = this;
+      axios.post(url,
+        {
+          body: {
+            session_cookie: session_cookie,
+          }
+      }).then(function (response) {
+        if(response.data.status.ok){
+          thisa.profile=response.data.profile;
+        }
+      })
     }
   },
-  beforeCreate(){
-  },
+  mounted(){
+    update_profile()
+  }
+  ,
 };
 </script>
 <style>

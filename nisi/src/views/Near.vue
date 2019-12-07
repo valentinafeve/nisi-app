@@ -7,7 +7,7 @@
     <div class="main_container">
       <div
         v-for="user in near_users"
-        :key="user"
+        :key="user.username"
         class=""
       >
         <NearUserCard
@@ -16,7 +16,8 @@
         />
       </div>
       <div class="">
-        <button @click="send_location">Sendi location</button>
+        <button @click="update_location"> Sendi location </button>
+        <button @click="update_near_users">Near users </button>
         <div id="feedito" class="">
           {{ latitude }}
           {{ longitude }}
@@ -72,7 +73,7 @@ export default {
       $("#feedito").load("https://m.facebook.com/ruastabi");
       // .load("http://capacitor.ionicframework.com/")
     },
-    send_location() {
+    update_location() {
       console.log("Sending")
       let url = NBASEURL+"/map/updatelocation/"
       axios.post(url,
@@ -86,6 +87,22 @@ export default {
           }
       }).then(function (response) {
         if(response.data.status.ok){
+        }
+      })
+    },
+    update_near_users() {
+      var thisa = this;
+      console.log("Sending")
+      let url = NBASEURL+"/map/nearusers/"
+      axios.post(url,
+        {
+          body: {
+            session_cookie: session_cookie,
+          }
+      }).then(function (response) {
+        if(response.data.status.ok){
+          console.log(thisa.near_users)
+          thisa.near_users = response.data.near_users;
         }
       })
     }

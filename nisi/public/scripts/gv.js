@@ -1,5 +1,6 @@
 let NBASEURL = "http://192.168.0.18:8000"
-var session_cookie = "791192068bdd48d022a5e63a90fea2da3bf56e371638b3b566b741be"
+var session_cookie = "30de716618818883a515fc2d024215b928a9b645d35c1121921cf358"
+var global_theme = "g-btn--pink-to-orange"
 
 // let NBASEURL = "http://191.232.209.159"
 function getCookie(name) {

@@ -1,110 +1,62 @@
 <template>
-  <div class="profile_sn_card">
+  <div class="sn_card_editable">
     <div class="second_card">
-      <div
-        class="card full_shadow"
-        style="border: none; border-radius: 20px; font-size: 0.8em;"
-      >
-      <div class="social_network_panel">
-        <img
-          src="../../../public/assets/icons/telegram.svg"
-          alt="Home"
-          weight="28px"
-          height="24px"
-        >
-        <div
-          class=""
-          style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-        >
-          {{ sns.telegram }}
-        </div>
-      </div>
-      <div class="divider" />
-        <div class="social_network_panel">
-          <img
-            src="../../../public/assets/icons/twitter.svg"
-            alt="Home"
-            weight="28px"
-            height="24px"
-          >
-          <div
-            class=""
-            style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-          >
-            {{ sns.twitter }}
-          </div>
-        </div>
-        <div class="divider" />
-        <div class="social_network_panel">
-          <img
-            src="../../../public/assets/icons/instagram.svg"
-            alt="Home"
-            weight="28px"
-            height="22px"
-          >
-          <div
-            class=""
-            style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-          >
-            {{ sns.instagram }}
-          </div>
-        </div>
-        <div class="divider" />
-        <div class="social_network_panel" @click="fb_settings">
-          <img
-            src="../../../public/assets/icons/facebook.svg"
-            alt="Home"
-            weight="28px"
-            height="24px"
-          >
-          <div
-            class=""
-            style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
-          >
-            {{ sns.facebook }}
-          </div>
-        </div>
-      </div>
+      <TGSettings :info="sns.tg">
+      </TGSettings>
+      <IGSettings :info="sns.ig">
+      </IGSettings>
+      <TWSettings :info="sns.tw">
+      </TWSettings>
+      <FBSettings :info="sns.fb">
+      </FBSettings>
     </div>
   </div>
 </template>
 
 <script>
-import { registerWebPlugin } from '@capacitor/core';
-import { FacebookLogin } from '@rdlabo/capacitor-facebook-login';
-
-import { Plugins } from '@capacitor/core';
-import { FacebookLoginResponse } from '@rdlabo/capacitor-facebook-login';
+import TGSettings from '../../components/settings_sn/TG'
+import FBSettings from '../../components/settings_sn/FB'
+import IGSettings from '../../components/settings_sn/IG'
+import TWSettings from '../../components/settings_sn/TW'
 
 export default {
   name: 'SNCardEditable',
+  components:{
+    TGSettings,
+    FBSettings,
+    IGSettings,
+    TWSettings,
+  },
   data(){
     return{
     }
   },
-  methods:{
-    fb_settings(){
-      alert("Wporking")
-      console.log("Logging facebook")
-      // await loggin()
-      async function loggin(){
-        const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
-        const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS });
+  computed:{
 
-        if (result.accessToken) {
-          // Login successful.
-          console.log(`Facebook access token is ${result.accessToken.token}`);
-        } else {
-          // Cancelled by user.
-        }
-        return 1;
-      }
-    }
+  },
+  methods:{
   },
   props:['sns']
 }
 </script>
 
 <style media="screen">
+.sn_card_editable .social_network_panel .button{
+  height: "20px";
 
+  text-align: center;
+}
+.sn_card_editable .is_added{
+  width: 100%;
+}
+.sn_card_editable .isnt_added{
+  width: 100%;
+}
+.sn_card_editable .message{
+  background: #f5f5f5;
+  color: #777;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
 </style>

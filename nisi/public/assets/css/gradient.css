@@ -319,3 +319,12 @@
 .g-btn--yellow-to-green:hover {
     background: #76F327
 }
+.g-btn--tg {
+    background: -webkit-gradient(linear, left top, left bottom, from(#6CC1E3), to(#4995BE));
+    background: linear-gradient(#6CC1E3, #4995BE)
+}
+.g-btn--add{
+  background: -webkit-gradient(linear, left top, left bottom, from(#88d840), to(#67b826));
+  background: linear-gradient(#88d840, #67b826)
+
+}

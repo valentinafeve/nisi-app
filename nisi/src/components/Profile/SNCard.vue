@@ -16,7 +16,7 @@
           class=""
           style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
         >
-          {{ sns.telegram }}
+          {{ telegram_text }}
         </div>
       </div>
       <div class="divider" />
@@ -31,7 +31,7 @@
             class=""
             style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
           >
-            {{ sns.twitter }}
+            {{ twitter_text }}
           </div>
         </div>
         <div class="divider" />
@@ -46,7 +46,7 @@
             class=""
             style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
           >
-            {{ sns.instagram }}
+            {{ instagram_text }}
           </div>
         </div>
         <div class="divider" />
@@ -61,7 +61,7 @@
             class=""
             style="vertical-align:top; display:inline; margin-left:15px; margin-top:8px;"
           >
-            {{ sns.facebook }}
+            {{ facebook_text }}
           </div>
         </div>
       </div>
@@ -75,6 +75,40 @@ export default {
   data(){
     return{
     }
+  },
+  computed:{
+    telegram_text(){
+      if(this.sns.telegram){
+        return this.sns.telegram
+      }
+      else{
+        return "You haven't added Telegram"
+      }
+    },
+    instagram_text(){
+      if(this.sns.instagram){
+        return this.sns.instagram
+      }
+      else{
+        return "You haven't added Instagram"
+      }
+    },
+    facebook_text(){
+      if(this.sns.facebook){
+        return this.sns.facebook
+      }
+      else{
+        return "You haven't added Facebook"
+      }
+    },
+    twitter_text(){
+      if(this.sns.twitter){
+        return this.sns.twitter
+      }
+      else{
+        return "You haven't added Twitter"
+      }
+    },
   },
   methods:{
   },

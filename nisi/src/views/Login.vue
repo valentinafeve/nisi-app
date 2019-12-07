@@ -11,10 +11,11 @@
               <input v-model="username" class="form-input" placeholder="Username">
             </div>
             <div class="form-group">
-              <input v-model="password" style="display: inline-block; width: 80%;" class="form-input password" type="password" placeholder="Password">
+              <input v-model="password" style="display: inline-block; width: 80%;" class="form-input password" :type="password_type" placeholder="Password">
               <div class="" style="display: inline-block; width: 12%; height: 100%; margin-left:10px; vertical-align: middle;">
-                <div class="button_view_password">
-                  <img src="../assets/icons/view.svg" alt="">
+                <div @click="view_password" class="button_view_password">
+                  <img src="../assets/icons/eye.svg" alt="" height="20px" width="25px" :style="{display: pv_display}">
+                  <img src="../assets/icons/eye-closed.svg" alt="" height="20px" width="25px" :style="{display: ph_display}">
                 </div>
               </div>
             </div>
@@ -59,10 +60,39 @@ export default{
     return {
       username: "",
       password: "",
+
+      vp: true,
+      hp: false,
     }
   },
   components:{
     Header
+  },
+  computed:{
+    password_type(){
+      if(this.vp){
+        return "password"
+      }
+      else{
+        return "text"
+      }
+    },
+    ph_display(){
+      if(this.vp){
+        return "none"
+      }
+      else{
+        return "block"
+      }
+    },
+    pv_display(){
+      if(!this.vp){
+        return "none"
+      }
+      else{
+        return "block"
+      }
+    }
   },
   methods: {
     signin(){
@@ -96,6 +126,10 @@ export default{
         }
       })
     },
+    view_password(){
+      this.vp = !this.vp;
+      this.hp = !this.hp;
+    }
   }
 }
 </script>

@@ -8,15 +8,24 @@
         <div class="card full_shadow" style="border: none; border-radius: 20px;">
           <div class="nisi_form">
             <div class="picture_form">
-              <div class="button_add_picture full_shadow_medium">
-                <img src="../assets/icons/add.svg" alt="...">
-              </div>
+              <label for="pp_file">
+                <div class="button_add_picture full_shadow_medium">
+                  <img src="../assets/icons/add.svg" alt="...">
+                  <input id="pp_file" type='file' style="display:none"/>
+                </div>
+              </label>
             </div>
             <div class="form-group">
               <input v-model="username" class="form-input" type="text" placeholder="Username">
             </div>
             <div class="form-group">
-              <input v-model="password" class="form-input password" type="password" placeholder="Password">
+              <input v-model="password" style="display: inline-block; width: 80%;" class="form-input password" :type="password_type" placeholder="Password">
+              <div class="" style="display: inline-block; width: 12%; height: 100%; margin-left:10px; vertical-align: middle;">
+                <div @click="view_password" class="button_view_password">
+                  <img src="../assets/icons/eye.svg" alt="" height="20px" width="25px" :style="{display: pv_display}">
+                  <img src="../assets/icons/eye-closed.svg" alt="" height="20px" width="25px" :style="{display: ph_display}">
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <input v-model="phone" class="form-input" placeholder="Phone">
@@ -54,10 +63,39 @@ export default{
       username: '',
       password: '',
       phone:'',
+
+      vp: true,
+      hp: false,
     }
   },
   components:{
     Header
+  },
+  computed:{
+    password_type(){
+      if(this.vp){
+        return "password"
+      }
+      else{
+        return "text"
+      }
+    },
+    ph_display(){
+      if(this.vp){
+        return "none"
+      }
+      else{
+        return "block"
+      }
+    },
+    pv_display(){
+      if(!this.vp){
+        return "none"
+      }
+      else{
+        return "block"
+      }
+    }
   },
   methods: {
     signup(){
@@ -82,6 +120,10 @@ export default{
         }
       })
     },
+    view_password(){
+      this.vp = !this.vp;
+      this.hp = !this.hp;
+    }
   }
 };
 </script>
