@@ -29,7 +29,6 @@
 <script>
 import NearUserCard from '../components/NearUserCard';
 import Header from '../components/components/Header';
-import 'capacitor-fancy-geo'
 import JQuery from 'jquery'
 import axios from 'axios'
 let $ = JQuery

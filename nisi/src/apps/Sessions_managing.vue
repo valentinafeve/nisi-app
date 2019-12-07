@@ -38,7 +38,7 @@ export default {
       //     thisa.$router.push({name: 'home'})
       //   }
       //   else{
-          router.push({name: 'home'})
+          router.push({name: 'login'})
       //   }
       // })
       // .catch(function (error) {
