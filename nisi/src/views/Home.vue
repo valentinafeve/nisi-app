@@ -8,13 +8,14 @@
       </div>
     </Header>
     <div class="main_container">
+      <button @click="update_twitter_posts" type="button" name="button">Update</button>
       <div
         id="twitter_feed"
         style="display:none"
       />
       <div
         id="facebook_feed"
-        style="display:block;"
+        style="display:none;"
       >
       </div>
       <div
@@ -24,7 +25,7 @@
       <div
         id="feed"
         class=""
-        style="display:none"
+        style="display:block"
       >
         <div
           v-for="post in posts"
@@ -202,9 +203,10 @@ export default {
   },
   mounted(){
     var thisa = this;
-    return axios.post(
+    axios.post(
       NBASEURL+'/fd/twfollowings/',{
       body: {
+        session_cookie:session_cookie,
       },
     }).then(function (response) {
           var twitter_followings = response.data.twitter.users;
@@ -237,6 +239,22 @@ export default {
   methods:{
     to_notifications(){
       this.$router.push("notifications")
+    },
+    update_twitter_posts(){
+      var thisa = this
+      axios.post(
+        NBASEURL+'/fd/twfollowings/',{
+        body: {
+          session_cookie:session_cookie,
+        },
+      }).then(function (response) {
+            var twitter_followings = response.data.twitter.users;
+            console.log("Users I read")
+            console.log(twitter_followings)
+            twitter_followings.forEach(get_twitter_feed);
+            full_twitter_list(thisa);
+            render_tweets();
+        });
     }
   }
 };
