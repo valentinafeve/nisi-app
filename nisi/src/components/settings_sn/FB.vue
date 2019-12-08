@@ -55,8 +55,10 @@
 </div>
 </template>
 <script type="text/javascript">
+import { Plugins } from '@capacitor/core';
 import JQuery from 'jquery'
 let $ = JQuery
+const { Browser } = Plugins;
 
 function fix_horrible_styles(){
   console.log("Fixing facebook")

@@ -11,22 +11,16 @@
       <TwitterFeed :twitter_posts="twitter_posts">
       </TwitterFeed>
       <div
-        id="twitter_feed"
-        style="display:none"
-      />
-      <div
         id="facebook_feed"
         style="display:none;"
       >
       </div>
-      <div
-        id="instagram_feed"
-        style="display:none"
-      />
+      <InstagramFeed :instagram_posts="instagram_posts">
+      </InstagramFeed>
       <div
         id="feed"
         class=""
-        style="display:block"
+        style="display:none"
       >
         <div
           v-for="post in posts"
@@ -49,6 +43,7 @@
 import Post from '../components/feed/Post'
 import Header from '../components/components/Header';
 import TwitterFeed from '../components/feed/Twitter_feed';
+import InstagramFeed from '../components/feed/Instagram_feed';
 
 export default {
   name: "Home",
@@ -56,6 +51,7 @@ export default {
     Post,
     Header,
     TwitterFeed,
+    InstagramFeed,
   },
   data(){
     return {
