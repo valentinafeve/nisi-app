@@ -13,11 +13,11 @@
               <div class="twitter_input">
                 <div class="form-group">
                   <span style="display:inline-block;">@</span>
-                  <input class="form-input" type="text" name="" v-model="tg_input" placeholder="Telegram username" style="width: 80%; display:inline-block;">
+                  <input class="form-input" type="text" name="" v-model="telegram_input" placeholder="Telegram username" style="width: 80%; display:inline-block;">
                 </div>
               </div>
               <div class="centered">
-                <button class="g-btn g-btn--blue radius-md" type="button" name="button" style="height:30px; padding-top:5px; width:55%;">Save</button>
+                <button @click="save_telegram" class="g-btn g-btn--blue radius-md" type="button" name="button" style="height:30px; padding-top:5px; width:55%;">Save</button>
               </div>
             </div>
           </div>
@@ -62,12 +62,14 @@
 </div>
 </template>
 <script type="text/javascript">
+import axios from 'axios'
+
   export default{
     name: "Telegram_settings",
     data(){
       return {
         active_modal:false,
-        tg_input:"",
+        telegram_input:"",
       }
     },
     methods:{
@@ -77,6 +79,24 @@
       close_modal(){
         console.log("Cliqued")
         this.active_modal=false;
+      },
+      save_telegram(){
+        this.followed = true;
+        let url = NBASEURL+"/nu/addsn/"
+        var username = this.telegram_input
+        axios.post(url,
+          {
+            body: {
+              session_cookie: session_cookie,
+              sn:{
+                name: 'tg',
+                username: username,
+              }
+            }
+        }).then(function (response) {
+          if(response.data.status.ok){
+          }
+        })
       }
     },
     computed:{
