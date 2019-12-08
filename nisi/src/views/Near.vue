@@ -34,9 +34,41 @@ import axios from 'axios'
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;
 
-async function getCurrentPosition() {
-  const coordinates = await Geolocation.getCurrentPosition();
-  console.log('Current', coordinates);
+class GeolocationM {
+  async getCurrentPosition() {
+    const coordinates = await Geolocation.getCurrentPosition();
+    console.log('Current', coordinates);
+  }
+
+  watchPosition() {
+    const wait = Geolocation.watchPosition({}, (position, err) => {
+    })
+  }
+}
+
+// function reading_coords(){
+//   // console.log("Reading...")
+//   // console.log(GeolocationM.prototype)
+//   GeolocationM.prototype.getCurrentPosition();
+// }
+
+function send_coords(coords){
+  console.log("Sending coords...")
+  // console.log(coords)
+  // let url = NBASEURL+"/map/updatelocation/"
+  // axios.post(url,
+  //   {
+  //     body: {
+  //       session_cookie: session_cookie,
+  //       position:{
+  //         lat: coords.coords.latitude,
+  //         lng: coords.coords.longitude,
+  //       }
+  //     }
+  // }).then(function (response) {
+  //   if(response.data.status.ok){
+  //   }
+  // })
 }
 
 export default {
@@ -60,6 +92,7 @@ export default {
     }
   },
   mounted(){
+    // var rcoords = setInterval(reading_coords, 10000);
   },
   methods:{
     follow(){
@@ -70,22 +103,10 @@ export default {
       $("#feedito").load("https://m.facebook.com/ruastabi");
       // .load("http://capacitor.ionicframework.com/")
     },
-    update_location() {
-      console.log("Sending")
-      let url = NBASEURL+"/map/updatelocation/"
-      axios.post(url,
-        {
-          body: {
-            session_cookie: session_cookie,
-            position:{
-              lat: 4.78912,
-              lng: 72.78912,
-            }
-          }
-      }).then(function (response) {
-        if(response.data.status.ok){
-        }
-      })
+    async update_location(){
+      console.log("Trying to read position");
+      var coords = await GeolocationM.prototype.getCurrentPosition();
+      // geom.prototype.getCurrentPosition();
     },
     update_near_users() {
       var thisa = this;
