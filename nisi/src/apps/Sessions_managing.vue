@@ -6,6 +6,12 @@
 <script>
 
 import axios from 'axios'
+import {
+  Plugins,
+  StatusBarStyle,
+} from '@capacitor/core';
+
+const { StatusBar } = Plugins;
 
 export default {
   props: {
@@ -13,6 +19,7 @@ export default {
   },
   mounted(){
     // this.presentLoading();
+    StatusBar.setBackgroundColor({color:"#ff5432"})
     this.checkLoggedIn(this);
   },
   methods:{

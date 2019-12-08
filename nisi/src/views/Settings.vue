@@ -21,6 +21,8 @@
                 <input :value="profile.username" class="form-input" type="text" id="input-example-1" placeholder="Username">
               </div>
               <div class="form_input">
+                <textarea class="ta_about" name="ta_about" rows="5" value="sdk" :placeholder="profile.about">
+                </textarea>
                 <input :value="profile.about" class="form-input" type="text" id="input-example-1" placeholder="I am an about">
               </div>
               <div class="form_input">
@@ -199,5 +201,10 @@ export default{
 }
 .settings .sessions button{
   margin-bottom: 9px;
+}
+.ta_about{
+  width: 100%;
+  margin-left: 7px;
+  border-radius: 10px;
 }
 </style>

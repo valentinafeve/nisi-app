@@ -1,8 +1,8 @@
 /* eslint-disable */
 <template>
-  <div overflow-scroll="true">
+  <div overflow-scroll="true" class="profile">
     <Header>
-      Nisi
+      {{profile.username}}
       <div class="icon" @click="to_settings">
         <img src="../assets/icons/settings.svg" alt="" height="26px">
       </div>
@@ -32,35 +32,42 @@
                   class="card-title h5"
                   style="text-align: center"
                 >
-                  {{ profile.username }}
-                </div>
-                <div
-                  class="card-subtitle"
-                  style="text-align: center"
-                >
                   {{ profile.first_name }} {{ profile.last_name }}
-                </div>
-                <div
-                  class="card-subtitle text-gray"
-                  style="text-align: center"
-                >
-                  {{ profile.about }}
                 </div>
               </div>
               <div class="divider" />
               <div
-                class="card-body"
-                style="text-align: center; font-size: 40px; margin-bottom: 20px;"
+                :class="[{'card-body':true},{'about':true},{'visible':v_a}]"
+                @click="show_r"
+              >
+                "{{ profile.about }}"
+              </div>
+              <div
+                :class="[{'card-body':true},{'rating':true},{'visible':v_r}]"
+                @click="show_s"
               >
                 {{ profile.rating }}
               </div>
               <div
-                class="card-body"
-                style="text-align: center; display: none;"
+                :class="[{'card-body':true},{'statistics':true},{'visible':v_s}]"
+                @click="show_a"
               >
-                I rated: {{ profile.irated }}
-                <br>
-                Rated me: {{ profile.ratedme }}
+                <div class="line">
+                  <div class="title">
+                    I rated
+                  </div>
+                  <div class="content">
+                    {{ profile.irated }}
+                  </div>
+                </div>
+                <div class="line">
+                  <div class="title">
+                    Rated me
+                  </div>
+                  <div class="content">
+                    {{ profile.ratedme }}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -89,7 +96,10 @@ export default {
         sns:{
 
         }
-      }
+      },
+      v_a: true,
+      v_s: false,
+      v_r: false,
     }
   },
   methods:{
@@ -109,6 +119,21 @@ export default {
           thisa.profile=response.data.profile;
         }
       })
+    },
+    show_a(){
+      this.v_a= true
+      this.v_r= false
+      this.v_s= false
+    },
+    show_r(){
+      this.v_a= false
+      this.v_r= true
+      this.v_s= false
+    },
+    show_s(){
+      this.v_a= false
+      this.v_r= false
+      this.v_s= true
     }
   },
   mounted(){
@@ -129,4 +154,36 @@ export default {
 };
 </script>
 <style>
+  .profile .first_card .card-body{
+    display: none;
+  }
+  .profile .first_card .card-body.about{
+    color: #bbb;
+    font-style: italic;
+  }
+  .profile .first_card .card-body.rating{
+    font-size: 40px;
+    text-align: center;
+  }
+  .profile .first_card .card-body.statistics{
+  }
+  .profile .first_card .card-body.statistics .line{
+    position: relative;
+  }
+  .profile .first_card .card-body.statistics .title{
+    display:inline-block;
+    font-size: 18px;
+    color: #333;
+  }
+  .profile .first_card .card-body.statistics .content{
+    display:inline-block;
+    font-size: 16px;
+    color: #555;
+    position:absolute;
+    right: 0;
+  }
+  .profile .first_card .card-body.visible{
+    display: block;
+  }
+
 </style>

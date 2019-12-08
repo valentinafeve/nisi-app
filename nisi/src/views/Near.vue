@@ -11,11 +11,13 @@
         class=""
       >
         <NearUserCard
+          :key="user.username"
           :username="user.username"
           :picture_path="user.picture_path"
+          :followed="user.followed"
         />
       </div>
-      <div class="">
+      <div class="test" style="display:block">
         <button @click="update_location"> Sendi location </button>
         <button @click="update_near_users">Near users </button>
         <div id="feedito" class="">
@@ -34,26 +36,14 @@ import axios from 'axios'
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;
 
-class GeolocationM {
-  async getCurrentPosition() {
-    const coordinates = await Geolocation.getCurrentPosition();
-    console.log('Current', coordinates);
-  }
-
-  watchPosition() {
-    const wait = Geolocation.watchPosition({}, (position, err) => {
-    })
-  }
-}
-
-// function reading_coords(){
-//   // console.log("Reading...")
-//   // console.log(GeolocationM.prototype)
-//   GeolocationM.prototype.getCurrentPosition();
-// }
-
-function send_coords(coords){
-  console.log("Sending coords...")
+async function send_location(){
+  Geolocation.getCurrentPosition({timeout:5000}).then((coords)=>{
+    console.log(coords)
+  }).catch((error)=>{
+    console.log(error)
+  }).finally(()=>{
+    console.log("finally")
+  });
   // console.log(coords)
   // let url = NBASEURL+"/map/updatelocation/"
   // axios.post(url,
@@ -103,10 +93,8 @@ export default {
       $("#feedito").load("https://m.facebook.com/ruastabi");
       // .load("http://capacitor.ionicframework.com/")
     },
-    async update_location(){
-      console.log("Trying to read position");
-      var coords = await GeolocationM.prototype.getCurrentPosition();
-      // geom.prototype.getCurrentPosition();
+    update_location(){
+      send_location()
     },
     update_near_users() {
       var thisa = this;

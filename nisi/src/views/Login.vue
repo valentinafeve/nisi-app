@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="login">
     <Header>
       Nisi
     </Header>
@@ -19,6 +19,12 @@
                 </div>
               </div>
             </div>
+            <div class="error_message">
+              <div v-for="error in errors" :key="error" class="">
+                {{error}}
+              </div>
+            </div>
+
           </div>
           <div class="">
             <div class="session_buttons">
@@ -63,6 +69,9 @@ export default{
 
       vp: true,
       hp: false,
+
+      errors:[
+      ]
     }
   },
   components:{
@@ -105,7 +114,12 @@ export default{
         username : username,
         password : password
       };
+      if (!username | !password){
+        this.errors = ["Fill the fields"]
+        return
+      }
       let csrftoken = getCookie('csrftoken');
+      var thisa = this;
       axios.post(url,
         {
 
@@ -118,12 +132,16 @@ export default{
       }).then(function (response) {
         console.log(response.data)
         if(response.data.status.ok){
-          session_cookie = response.data.session.token
-          router.push("home")
+          if(response.data.response == 1){
+            session_cookie = response.data.session.token
+            router.push("home")
+          }
+          if(response.data.response == 2){
+            thisa.errors = ["User with that credentials doesn't exist."]
+          }
         }
-        else{
-          console.log("Authentication failed")
-        }
+      }).catch(()=>{
+        thisa.errors = ["Network error, Check your connection."]
       })
     },
     view_password(){
@@ -173,6 +191,18 @@ export default{
     height: 40px;
   }
   a {
+    font-size: 0.8em;
+  }
+  .login .error_message{
+    background: #ddaaaa;
+    color: #774444;
+    border-radius: 10px;
+    padding: 10px 10px 10px 20px;
+  }
+  .error_message:empty{
+    display:none;
+  }
+  .error_message div{
     font-size: 0.8em;
   }
 </style>
