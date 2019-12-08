@@ -71,11 +71,6 @@ export default {
     return {
       near_users:
         [
-          {
-            username:'cclevin',
-            picture_path:'http://3.bp.blogspot.com/-2Nd9OdRT6VA/U8OBaTAkmPI/AAAAAAAAUoY/u2QmfcAZJhE/s1600/Picture7.png',
-            rating:4.5
-          },
         ],
         latitude: 0,
         longitude: 0

@@ -91,7 +91,7 @@ import axios from 'axios'
         this.active_modal=false;
       },
       save_twitter(){
-        this.followed = true;
+        this.active_modal=false;
         let url = NBASEURL+"/nu/addsn/"
         var username = this.twitter_input
         axios.post(url,
@@ -105,6 +105,7 @@ import axios from 'axios'
             }
         }).then(function (response) {
           if(response.data.status.ok){
+            
           }
         })
       }
