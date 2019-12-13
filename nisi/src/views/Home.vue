@@ -10,11 +10,8 @@
     <div class="main_container">
       <TwitterFeed :twitter_posts="twitter_posts">
       </TwitterFeed>
-      <div
-        id="facebook_feed"
-        style="display:none;"
-      >
-      </div>
+      <FacebookFeed>
+      </FacebookFeed>
       <InstagramFeed :instagram_posts="instagram_posts">
       </InstagramFeed>
       <div
@@ -44,6 +41,7 @@ import Post from '../components/feed/Post'
 import Header from '../components/components/Header';
 import TwitterFeed from '../components/feed/Twitter_feed';
 import InstagramFeed from '../components/feed/Instagram_feed';
+import FacebookFeed from '../components/feed/Facebook_feed';
 
 export default {
   name: "Home",
@@ -52,6 +50,7 @@ export default {
     Header,
     TwitterFeed,
     InstagramFeed,
+    FacebookFeed,
   },
   data(){
     return {
@@ -90,6 +89,8 @@ export default {
     }
   },
   mounted(){
+
+
   },
   created(){
   },
