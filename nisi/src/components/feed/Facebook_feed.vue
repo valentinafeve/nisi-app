@@ -56,9 +56,9 @@ export default {
 
 <style media="screen">
 #facebook_feed{
-  display:block;
+  display:none;
 }
 #facebook_feed{
-  display:block;
+  display:none;
 }
 </style>

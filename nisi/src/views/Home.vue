@@ -17,7 +17,7 @@
       <div
         id="feed"
         class=""
-        style="display:none"
+        style="display:block"
       >
         <div
           v-for="post in posts"
