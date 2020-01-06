@@ -1,0 +1,8 @@
+{
+  "appId": "com.vue.nisi",
+  "appName": "Nisi",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist",
+  "cordova": {}
+}
