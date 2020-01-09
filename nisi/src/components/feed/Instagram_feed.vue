@@ -95,9 +95,9 @@ export default {
 
 <style media="screen">
 #instagram_feed{
-  display:block;
+  display:none;
 }
 #instagram_feed{
-  display:block;
+  display:none;
 }
 </style>
