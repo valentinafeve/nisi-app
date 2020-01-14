@@ -348,3 +348,7 @@
     padding: .7rem 1.2rem;
     outline: 0;
 }
+.default-theme {
+  background: -webkit-gradient(linear, left top, left bottom, from(#389FFD), to(#006cff));
+  background: linear-gradient(#389FFD, #006cff)
+}

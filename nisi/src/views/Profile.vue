@@ -4,12 +4,13 @@
     <Header>
       {{profile.username}}
       <div class="icon" @click="to_settings">
+        <!-- <img src="../assets/icons/settings.svg" alt="" height="26px"> -->
         <img src="../assets/icons/settings.svg" alt="" height="26px">
       </div>
     </Header>
     <div class="main_container">
       <div>
-        <button @click="update_profile" type="button" name="button">Update profile</button>
+        <!-- <button @click="update_profile" type="button" name="button">Update profile</button> -->
         <div>
           <div class="first_card">
             <div
@@ -21,8 +22,9 @@
                 style="margin: 0 auto; margin-top: 20px;"
               >
                 <figure class="avatar avatar-xl">
+                  <!-- :src="profile.picture_path" -->
                   <img
-                    :src="profile.picture_path"
+                    src="https://www.pleasantmall.com/wp-content/uploads/2019/12/HTB1x4v3aFzsK1Rjy1Xbq6xOaFXaq.jpg"
                     alt="..."
                   >
                 </figure>

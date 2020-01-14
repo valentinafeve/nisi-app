@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /dist
-/public/nisi_settings.js
 
 # local env files
 .env.local

@@ -33,7 +33,7 @@
           </div>
           <div class="">
             <div class="session_buttons">
-              <button @click="signup" class="button_login g-btn g-btn--purple-to-aqua radius-md">
+              <button @click="signup" class="button_login g-btn default-theme radius-md">
                 Sign up
               </button>
             </div>

@@ -192,14 +192,17 @@ export default {
 <style media="screen">
   tr{
     width: 100% !important;
+    position: relative;
   }
   td{
     width: 70%;
   }
   .sn_info{
     color:#999;
-    align:right;
-    text-align:right;
+    position: absolute;
+    text-align: right;
+    font-size: 12px;
+    right: 0;
   }
   .sn_username{
     color:#999;

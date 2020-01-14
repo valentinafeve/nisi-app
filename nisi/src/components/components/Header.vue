@@ -28,11 +28,11 @@ export default {
     position: fixed;
     margin: 0px;
     box-shadow: 0px 0 8px rgba(100, 100, 100, 0.2);
-    height: 60px;
+    height: 13%;
     padding-left: 20px;
     width: 100%;
-    padding-top: 10px;
-    font-size: 20px;
+    padding-top: 6%;
+    font-size: 1.6em;
     z-index: 3;
   }
   .header .icon{

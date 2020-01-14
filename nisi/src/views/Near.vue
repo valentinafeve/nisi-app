@@ -17,7 +17,7 @@
           :followed="user.followed"
         />
       </div>
-      <div class="error message" :class="{message_visible:near_users_empty}">
+      <div class="error message" style="display:none;" :class="{message_visible:near_users_empty}">
         Let Nisi access to your location in order to see who is near.
       </div>
     </div>
@@ -41,6 +41,19 @@ export default {
     return {
       near_users:
         [
+          {
+            username: 'vronsky',
+            picture_path: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.zennioptical.com%2Fblog%2Fwp-content%2Fuploads%2F2017%2F08%2Fsquare-glasses-round-face.jpg&f=1&nofb=1',
+            rating: 3.0,
+            followed: true,
+          },
+          {
+            username: 'kalejandrovna',
+            picture_path: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.allure.com%2Fphotos%2F5ac3b8f9424f773b2007db4d%2F1%3A1%2Fw_400%252Cc_limit%2Fbest-glasses-for-your-face-shape-hannah-1.jpg&f=1&nofb=1',
+            rating: 3.0,
+            followed: false,
+          },
+
         ],
       position:{
         lat: 0,
@@ -50,11 +63,11 @@ export default {
   },
   computed:{
     near_users_empty(){
-      return this.near_users.length
+      return false
     }
   },
   mounted(){
-
+    update_users();
     const wait = Geolocation.watchPosition({}, (position, err) => {
       console.log("Im at")
       console.log(position);

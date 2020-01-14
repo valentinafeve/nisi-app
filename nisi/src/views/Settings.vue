@@ -6,7 +6,7 @@
     <div class="main_container">
       <div class="settings">
         <div class="profile">
-          <button @click="update_profile" type="button" name="button">Update profile</button>
+          <!-- <button @click="update_profile" type="button" name="button">Update profile</button> -->
           <div class="card full_shadow" style="border: none; border-radius: 10px;">
             <div class="picture_form">
               <label for="pp_file">

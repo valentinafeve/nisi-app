@@ -1,6 +1,11 @@
 body {
   margin: 0px;
   background: #fefefe;
+  font-size: 1.2em;
+  overflow-y: hidden;
+}
+*{
+  font-family: 'Hind', sans-serif;
 }
 *::-webkit-scrollbar {
   display: none;

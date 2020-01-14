@@ -28,12 +28,12 @@
           </div>
           <div class="">
             <div class="session_buttons">
-              <button @click="signin" class="button_login g-btn g-btn--purple-to-aqua radius-md">
+              <button @click="signin" class="button_login g-btn default-theme radius-md">
                 Log in
               </button>
             </div>
             <div class="session_buttons">
-              <a href="/#/signup">Sign up</a>
+              <a href="/#/signup" class="below_button">Sign up</a>
               <!-- <button class="button_login g-btn g-btn--purple-to-aqua radius-md">
               Sign up
             </button> -->
@@ -173,11 +173,20 @@ export default{
     justify-content: center;
   }
   .session_buttons{
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 8px;
+    width: 100%;
+    height: 1.4em;
+  }
+  .session_buttons .button_login{
+    width: 100%;
+    font-size: 1.1em;
+  }
+  .session_buttons .below_button{
+    font-size: 0.8em;
+    margin-top: 10px;
   }
   .button_login{
     font-size: 0.8em;
