@@ -1,4 +1,4 @@
-# Nisi_app
+# Nisi
 
 Nisi is a social network which shows posts from other social networks such as Twitter, Instagram and Facebook. Each post is organised in your feed and each one can be rated.
 Users will be able to find users who are near and follow them, follow a user on Nisi will mean follow all his social networks as well.
