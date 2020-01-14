@@ -30,6 +30,7 @@ npm run build
 
 ## Screenshots
 
+![Screenshots](https://i.imgur.com/scKjxsV.png)
 
 
 
