@@ -35,4 +35,4 @@ npm run build
 
 
 ## Copyright
-This app is inspired by the Episode 01 Season 03 (Nosedive) from Black Mirror.
+This app is inspired by the Episode 01 Season 03 (Nosedive) from Black Mirror. Designed, built and developed by Valentina Feruere.
